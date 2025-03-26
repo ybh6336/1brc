@@ -1,0 +1,9 @@
+CalculateAverageExecutorServiceBatch and CalculateAverageExecutorServiceBatchProcessor are the better ones so far.
+
++ Waiting on CompletableFuture.allOf(..).join() or AtomicInteger does not seem to make any difference.
++ Batch size of 10_000 is better than a batch size of 100_000.
++ Increasing Xmx to 16g makes things worse.
+
+jbang --javaagent=ap-loader@jvm-profiling-tools/ap-loader=start,event=cpu,file=profile.html -m dev.morling.onebrc.CalculateAverageExecutorServiceBatch target/average-1.0.0-SNAPSHOT.jar
+
+
